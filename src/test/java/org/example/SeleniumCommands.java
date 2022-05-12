@@ -9,26 +9,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class OpenWebsiteJUnit {
+public class SeleniumCommands {
     WebDriver driver;
-    String url = "https://demo.nopcommerce.com/register";
-    //WebElement regiBtn = driver.findElement(By.className("ico-register"));
-    WebElement firstName = driver.findElement(By.id("FirstName"));
+    String url = "https://demo.nopcommerce.com/";
+    String firstName = "payal";
+    WebElement regibtn = driver.findElement(By.className("ico-register"));
+    WebElement enterFirstName = driver.findElement(By.id("FirstName"));
 
     @Before
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-
     }
     @Test
     public void openWebsite(){
-        driver.get(url);
+        driver.get("https://demo.nopcommerce.com/");
         driver.manage().window().maximize();
-        //driver.findElement(By.className("ico-register")).click();
-        //regiBtn.click();
-        firstName.sendKeys("payal");
+        regibtn.click();
+        enterFirstName.sendKeys(firstName);
         System.out.println("Code executed");
+    }
+    public void goToRegistration(){
+        openWebsite();
 
     }
     @After
