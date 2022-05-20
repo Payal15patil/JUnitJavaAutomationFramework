@@ -1,4 +1,4 @@
-package org.example;
+package org.example.login;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -35,7 +35,7 @@ public class Login2 {
 
         @After
         public void tearDown() throws InterruptedException {
-            Thread.sleep(8000);
+            Thread.sleep(3000);
             driver.close();
         }
     }

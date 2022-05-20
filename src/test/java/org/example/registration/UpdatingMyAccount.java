@@ -1,23 +1,20 @@
-package org.example;
+package org.example.registration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.security.PublicKey;
-
-public class Registration {
+public class UpdatingMyAccount {
     WebDriver driver;
     String url = "https://demo.nopcommerce.com/";
     String firstName = "Payal";
     String lastName = "Patil";
-    String emailID = "patil123@gmail.com";
-    String password = "987654";
+    String emailID = "pay1@gmail.com";
+    String password = "456456";
     String confirmPassword = password;
 
     @Before
@@ -29,8 +26,8 @@ public class Registration {
         driver.findElement(By.className("ico-register")).click();  //Select Register from header
     }
     @Test
-    public void testCase1(){
-        System.out.println("Test case for Successful Registration");
+    public void testCase2(){
+        System.out.println("Updating info in MY ACCOUNT");
         driver.findElement(By.xpath("//*[@for='gender-female']")).click();   //Select Gender
         driver.findElement(By.id("FirstName")).sendKeys(firstName);         // Given First Name
         driver.findElement(By.id("LastName")).sendKeys(lastName);           // Given Last Name
@@ -41,12 +38,15 @@ public class Registration {
         driver.findElement(By.xpath("//*[@class='result']")).getText();
         System.out.println("Your Registration completed");
         driver.findElement(By.xpath("//*[@class='button-1 register-continue-button']")).click(); //Click on Continue button
-        driver.findElement(By.xpath("//*[@class='ico-logout']")).click();  //Click on Logout
+        driver.findElement(By.className("ico-account")).click();    // click on MY ACCOUNT from header
+        driver.findElement(By.xpath("//*[@value='pay157@gmail.com']")).getText();  //updating email address
+        driver.findElement(By.className("save-info-button")).click();
+        driver.findElement(By.className("ico-logout")).click();  //Click on Logout
 
     }
     @After
     public void tearDown() throws InterruptedException {
-        Thread.sleep(8000);
+        Thread.sleep(3000);
         driver.close();
     }
 }

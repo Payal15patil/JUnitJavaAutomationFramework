@@ -1,4 +1,4 @@
-package org.example;
+package org.example.next;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -9,11 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AutomateNext {
-
-        WebDriver driver;
-        String url = "https://www.next.co.uk/";
-
-
+    WebDriver driver;
+    String url = "https://www.next.co.uk/";
         @Before
         public void setup(){
             WebDriverManager.chromedriver().setup();
@@ -26,12 +23,10 @@ public class AutomateNext {
             System.out.println("Searching products on Next");
             driver.findElement(By.id("header-big-screen-search-box")).sendKeys("Summer Dress"); //given input
             driver.findElement(By.xpath("//*[@class='component__Span-qpq5s7-0 bBFOjW']")).click();
-
         }
-
         @After
         public void tearDown() throws InterruptedException {
-            Thread.sleep(8000);
+            Thread.sleep(3000);
             driver.close();
         }
 }
